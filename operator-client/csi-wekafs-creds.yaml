@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: csi-wekafs-creds
+  namespace: csi-wekafs
+type: Opaque
+data:
+  # A username to connect to the cluster API (base64-encoded)
+  username: fake
+  # A password to connect to the cluster API (base64-encoded)
+  password: fake
+  # An organization to connect to (default Root, base64-encoded)
+  organization: fake
+  

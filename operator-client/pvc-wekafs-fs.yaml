@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-wekafs-fs
+  namespace: csi-wekafs
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: storageclass-wekafs-fs-api
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Gi
