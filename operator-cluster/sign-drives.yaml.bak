@@ -1,0 +1,17 @@
+apiVersion: weka.weka.io/v1alpha1
+kind: WekaManualOperation
+metadata:
+  name: sign-aws-drives
+  namespace: weka-operator-system
+spec:
+  action: "sign-drives"
+  image: quay.io/weka.io/weka-in-container:4.3.5.105-dist-drivers.5
+  imagePullSecret: "quay-io-robot-secret"
+  payload:
+    signDrivesPayload:
+      type: device-paths
+      devicePaths:
+        - /dev/nvme2n1
+        - /dev/nvme3n1
+      nodeSelector:
+        role: backend

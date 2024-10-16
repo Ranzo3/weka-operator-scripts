@@ -1,0 +1,16 @@
+apiVersion: weka.weka.io/v1alpha1
+kind: WekaContainer
+metadata:
+  name: weka-drivers-builder
+  namespace: weka-operator-system
+spec:
+  agentPort: 60001
+  image: quay.io/weka.io/weka-in-container:4.3.5.105-dist-drivers.5
+  imagePullSecret: "quay-io-robot-secret"
+  mode: "drivers-builder"
+  name: dist # name of the weka container, will be removed in future towards slimmer distribution service
+  numCores: 1
+  uploadResultsTo: "weka-drivers-dist"
+  port: 60002
+  nodeSelector: 
+    weka.io/supports-backends: "true"
